@@ -1,7 +1,7 @@
 {
 	"name": "sg-sanitize-arguments",
 	"description": "Sanitizes function arguments by specified types. Also allows for optional arguments.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"main": "index.js",
 	"scripts": ["index.js"],
