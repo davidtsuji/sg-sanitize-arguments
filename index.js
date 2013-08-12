@@ -26,7 +26,7 @@ module.exports = function(_arguments, _params){
 
 			paramResult = argConstructor === params[_key] ? args.shift() : args[0] === null ? args.shift() : undefined;
 			
-			if (! contains(paramsArray, argConstructor) && paramResult !== null) {
+			if (! contains(paramsArray, argConstructor) && paramResult !== null && args.length > 0) {
 				args.shift();
 				tryArg();
 			}

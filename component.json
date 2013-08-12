@@ -11,6 +11,7 @@
 	},
 	"development": {
 		"visionmedia/mocha": "*",
-		"component/assert": "*"
+		"component/assert": "*",
+		"component/type": "*"
 	}
 }

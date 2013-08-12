@@ -1,4 +1,5 @@
 var assert = require('assert')
+  , type = require('type')
 
 Properties = function(_data)
 {
@@ -128,6 +129,51 @@ describe('sanitize arguments', function(){
 			_done();
 
 		})(undefined,null,'bam',undefined,13,myFunction);
+
+	});
+
+	it('should check a string and a callback', function(_done){
+
+		;(function(){
+
+			var args = sanitizeArguments(arguments, {string: String, callback: Function});
+			
+			assert(type(args['string']) === 'string');
+			assert(type(args['callback']) === 'function');
+
+			_done();
+
+		})('string', function(){});
+
+	});
+
+	it('should check a string and a callback but only the string is passed', function(_done){
+
+		;(function(){
+
+			var args = sanitizeArguments(arguments, {string: String, callback: Function});
+			
+			assert(type(args['string']) === 'string');
+			assert(type(args['callback']) === 'undefined');
+
+			_done();
+
+		})('string');
+
+	});
+
+	it('should check a string and a callback but only the function is passed', function(_done){
+
+		;(function(){
+
+			var args = sanitizeArguments(arguments, {string: String, callback: Function});
+			
+			assert(type(args['string']) === 'undefined');
+			assert(type(args['callback']) === 'function');
+
+			_done();
+
+		})(function(){});
 
 	});
 
